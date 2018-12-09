@@ -1,16 +1,13 @@
-import { taskType, TasksUIAction } from '../actions/tasksUI';
+import { TasksUIAction } from '../actions/tasksUI';
 
-export interface ITasksUIState {
-  taskInput: taskType;
-  isShowCompleted: boolean;
-}
+import { ITasksUIStore } from '../types/tasksUIStore';
 
-const initState: ITasksUIState = {
-  taskInput: '',
+const initState: ITasksUIStore = {
   isShowCompleted: false,
+  taskInput: '',
 };
 
-export const tasksUI = (state = initState, action: TasksUIAction): ITasksUIState => {
+export const tasksUI = (state = initState, action: TasksUIAction): ITasksUIStore => {
   switch (action.type) {
     case 'TASKUI_TEXT_ENTER':
       return { ...state, taskInput: action.payload };

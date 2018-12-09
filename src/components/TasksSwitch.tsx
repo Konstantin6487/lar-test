@@ -1,9 +1,16 @@
 import * as React from 'react';
-
 import { isEmpty } from 'lodash';
-import { FormGroup, Label, Input, Col, Row } from 'reactstrap';
+import {
+  Col,
+  FormGroup,
+  Input,
+  Label,
+  Row,
+} from 'reactstrap';
 
-export default class TasksSwitch extends React.Component<any> {
+import { IPropsTasksSwitch } from '../types/tasksSwitch';
+
+export default class TasksSwitch extends React.Component<IPropsTasksSwitch> {
 
   public handleChange = () => {
     this.props.toggleShowCompleted();

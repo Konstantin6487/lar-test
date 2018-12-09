@@ -1,13 +1,10 @@
 import { combineReducers } from 'redux';
-import { tasks, ITasksState } from './tasks';
-import { tasksUI, ITasksUIState } from './tasksUI';
 
-export interface IState {
-  tasks: ITasksState;
-  tasksUI: ITasksUIState;
-}
+import { tasks } from './tasks';
+import { tasksUI } from './tasksUI';
+import { IStore } from '../types/store';
 
-export const reducers = combineReducers<IState>({
+export const reducers = combineReducers<IStore>({
   tasks,
   tasksUI,
 });

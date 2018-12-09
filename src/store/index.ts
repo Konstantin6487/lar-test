@@ -1,4 +1,9 @@
-import { applyMiddleware, compose, createStore } from 'redux';
+import {
+  applyMiddleware,
+  compose,
+  createStore,
+} from 'redux';
+
 import { saver } from '../actions/middleware';
 import { reducers } from '../reducers';
 import { initState } from '../reducers/tasks';

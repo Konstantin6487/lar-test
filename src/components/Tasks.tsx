@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Container } from 'reactstrap';
 
 import TasksHeader from './TasksHeader';

@@ -1,6 +1,6 @@
 import { taskType } from './tasksUI';
 
-type taskIdType = string;
+export type taskIdType = taskType;
 
 export type TasksAction =
   | { type: 'TASKS_ADD_TASK'; payload: taskType }

@@ -1,13 +1,17 @@
 import * as React from 'react';
+import {
+  Button,
+  Col,
+  Form,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  Row,
+} from 'reactstrap';
 
-import { Button, Col, Form, Input, InputGroup, InputGroupAddon, Row } from 'reactstrap';
-export default class TasksInput extends React.Component<
-  {
-    taskInput: string;
-    enterTask: (value: string) => void;
-    addTask: (value: string) => void;
-    clearTask: () => void;
-  }> {
+import { IPropsTasksInput } from '../types/tasksInput';
+
+export default class TasksInput extends React.Component<IPropsTasksInput> {
 
   public handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target: { value } } = e;
@@ -17,7 +21,7 @@ export default class TasksInput extends React.Component<
   public handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { addTask, clearTask, taskInput } = this.props;
-    addTask(taskInput);
+    addTask(taskInput!);
     clearTask();
   }
 

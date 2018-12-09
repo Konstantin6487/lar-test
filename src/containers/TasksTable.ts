@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import { IState } from '../reducers';
-import { changeTaskStatus, removeTask } from '../actions/tasks';
-import TasksTable from '../components/TasksTable';
 
-const mapStateToProps = (state: IState) => {
+import TasksTable from '../components/TasksTable';
+import { changeTaskStatus, removeTask } from '../actions/tasks';
+import { IStore } from '../types/store';
+
+const mapStateToProps = (state: IStore) => {
   const { tasks, tasksUI: { isShowCompleted } } = state;
   return ({
     tasks,

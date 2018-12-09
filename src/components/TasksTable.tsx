@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { isEmpty, values } from 'lodash';
-
 import { FormGroup, Input, Col, Row, Table } from 'reactstrap';
+import { IPropsTasksTable } from '../types/tasksTable';
 
 import './tasks.scss';
 
-export default class TasksTable extends React.Component<any> {
+export default class TasksTable extends React.Component<IPropsTasksTable> {
 
   public handleRemoveTask = (id: string) => () => {
     this.props.removeTask(id);
@@ -29,13 +29,13 @@ export default class TasksTable extends React.Component<any> {
           <td><FormGroup check={true} inline={true}>
             <Input
               type="checkbox"
-              onChange={this.handleChangeTaskStatus(id)}
+              onChange={this.handleChangeTaskStatus(String(id))}
               checked={isCompleted}
             />
           </FormGroup></td>
           <td>
             <span>[редактировать]</span>
-            <span className="remove-button" onClick={this.handleRemoveTask(id)}>[удалить]</span>
+            <span className="remove-button" onClick={this.handleRemoveTask(String(id))}>[удалить]</span>
           </td>
         </tr>
       );

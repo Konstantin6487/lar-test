@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
+
 import TasksInput from '../components/TasksInput';
 import { enterTask, clearTask } from '../actions/tasksUI';
 import { addTask } from '../actions/tasks';
-import { IState } from '../reducers';
+import { IStore } from '../types/store';
 
-const mapStateToProps = (state: IState) => {
+const mapStateToProps = (state: IStore) => {
   const { tasksUI: { taskInput } } = state;
   return ({
     taskInput,

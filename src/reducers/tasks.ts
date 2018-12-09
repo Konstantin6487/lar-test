@@ -1,21 +1,13 @@
 import moment from 'moment';
 import 'moment/locale/ru';
-
-import { TasksAction } from '../actions/tasks';
 import { isEmpty, omit } from 'lodash';
 
-export interface ITasksState {
-  [key: string]: {
-    id: number;
-    date: string;
-    task: string;
-    isCompleted: boolean;
-  };
-}
+import { TasksAction } from '../actions/tasks';
+import { ITasksStore } from '../types/tasksStore';
 
-export const initState: ITasksState = {};
+export const initState: ITasksStore = {};
 
-export const tasks = (state = initState, action: TasksAction): ITasksState => {
+export const tasks = (state = initState, action: TasksAction): ITasksStore => {
   switch (action.type) {
     case 'TASKS_ADD_TASK':
       const taskID = isEmpty(state) ? 1 : Math.max(...Object.keys(state).map(Number)) + 1;
