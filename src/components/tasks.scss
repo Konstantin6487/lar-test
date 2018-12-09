@@ -28,6 +28,11 @@
         th:nth-child(5) {
           width: 25%;
         }
+        td {
+          .remove-button {
+            cursor: pointer
+          }
+        }
       }
       .is-show-completed {
         float: right;

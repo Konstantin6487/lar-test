@@ -1,13 +1,20 @@
 import * as React from 'react';
+
+import { isEmpty } from 'lodash';
 import { FormGroup, Label, Input, Col, Row } from 'reactstrap';
 
-export default class TasksSwitch extends React.Component<{ toggleShowCompleted: () => void }> {
+export default class TasksSwitch extends React.Component<any> {
 
   public handleChange = () => {
     this.props.toggleShowCompleted();
   }
 
   public render() {
+
+    if (isEmpty(this.props.tasks)) {
+      return null;
+    }
+
     return (
       <Row className="justify-content-center">
         <Col xs="10">

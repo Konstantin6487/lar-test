@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button, Col, Input, InputGroup, InputGroupAddon, Row } from 'reactstrap';
+import { Button, Col, Form, Input, InputGroup, InputGroupAddon, Row } from 'reactstrap';
 export default class TasksInput extends React.Component<
   {
     taskInput: string;
@@ -14,7 +14,8 @@ export default class TasksInput extends React.Component<
     this.props.enterTask(value);
   }
 
-  public handleClick = () => {
+  public handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const { addTask, clearTask, taskInput } = this.props;
     addTask(taskInput);
     clearTask();
@@ -24,17 +25,19 @@ export default class TasksInput extends React.Component<
     return (
       <Row className="justify-content-center">
         <Col xs="10">
-          <InputGroup>
-            <InputGroupAddon addonType="prepend">
-              <Button disabled={!this.props.taskInput} onClick={this.handleClick}>
-                Create task
-              </Button>
-            </InputGroupAddon>
-            <Input
-              onChange={this.handleChange}
-              value={this.props.taskInput}
-            />
-          </InputGroup>
+          <Form onSubmit={this.handleSubmit}>
+            <InputGroup>
+              <InputGroupAddon addonType="prepend">
+                <Button disabled={!this.props.taskInput}>
+                  Create task
+                </Button>
+              </InputGroupAddon>
+              <Input
+                onChange={this.handleChange}
+                value={this.props.taskInput}
+              />
+            </InputGroup>
+            </Form>
         </Col>
       </Row>
     );

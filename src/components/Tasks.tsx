@@ -4,7 +4,7 @@ import { Container } from 'reactstrap';
 
 import TasksHeader from './TasksHeader';
 import TasksInput from '../containers/TasksInput';
-import TasksTable from './TasksTable';
+import TasksTable from '../containers/TasksTable';
 import TasksSwitch from '../containers/TasksSwitch';
 
 export default class Tasks extends React.Component {

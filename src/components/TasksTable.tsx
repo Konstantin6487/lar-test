@@ -1,11 +1,45 @@
 import * as React from 'react';
+import { isEmpty, values } from 'lodash';
+
 import { FormGroup, Input, Col, Row, Table } from 'reactstrap';
 
 import './tasks.scss';
 
-export default class TasksTable extends React.Component {
-  // tslint:disable-next-line
+export default class TasksTable extends React.Component<any> {
+
+  public handleRemoveTask = (id: string) => () => {
+    this.props.removeTask(id);
+  }
+
+  public handleChangeTaskStatus = (id: string) => () => {
+    this.props.changeTaskStatus(id);
+  }
+
+  public renderTableRow = () => {
+    const { tasks } = this.props;
+    return values(tasks).map(({ id, task, date }) => {
+      return (
+        <tr key={id}>
+          <th scope="Col">{id}</th>
+          <td>{task}</td>
+          <td>{date}</td>
+          <td><FormGroup check={true} inline={true}>
+            <Input type="checkbox" onClick={this.handleChangeTaskStatus(id)} value={this.props.tasks.isCompleted} />
+          </FormGroup></td>
+          <td>
+            <span>[редактировать]</span>
+            <span className="remove-button" onClick={this.handleRemoveTask(id)}>[удалить]</span>
+          </td>
+        </tr>
+      );
+    });
+  }
+
   public render() {
+
+    if (isEmpty(this.props.tasks)) {
+      return null;
+    }
     return (
       <Row className="justify-content-center">
         <Col xs="10">
@@ -20,39 +54,7 @@ export default class TasksTable extends React.Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="Col">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td><FormGroup check={true} inline={true}>
-                  <Input type="checkbox" />
-                </FormGroup></td>
-                <td>
-                  <span>[редактировать]</span><span>[сохранить]</span>
-                </td>
-              </tr>
-              <tr>
-                <th scope="Col">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td><FormGroup check={true} inline={true}>
-                  <Input type="checkbox" />
-                </FormGroup></td>
-                <td>
-                  <span>[редактировать]</span><span>[сохранить]</span>
-                </td>
-              </tr>
-              <tr>
-                <th scope="Col">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td><FormGroup check={true} inline={true}>
-                  <Input type="checkbox" />
-                </FormGroup></td>
-                <td>
-                  <span>[редактировать]</span><span>[сохранить]</span>
-                </td>
-              </tr>
+              {this.renderTableRow()}
             </tbody>
           </Table>
         </Col>

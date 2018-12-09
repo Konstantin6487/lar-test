@@ -1,10 +1,17 @@
-import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import { IState } from '../reducers';
 import TasksSwitch from '../components/TasksSwitch';
-import { toggleShowCompleted, TasksUIAction } from '../actions/tasksUI';
+import { toggleShowCompleted } from '../actions/tasksUI';
 
-const mapDispatchToProps = (dispatch: Dispatch<TasksUIAction>) => ({
-  toggleShowCompleted: () => dispatch(toggleShowCompleted()),
-});
+const mapStateToProps = (state: IState) => {
+  const { tasks } = state;
+  return ({
+    tasks,
+  });
+};
 
-export default connect(null, mapDispatchToProps)(TasksSwitch);
+const mapDispatchToProps = {
+  toggleShowCompleted,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TasksSwitch);
