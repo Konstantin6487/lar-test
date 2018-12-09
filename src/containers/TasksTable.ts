@@ -6,10 +6,9 @@ import { IStore } from '../types/store';
 import { changeActiveTask, toggleShowModal } from '../actions/tasksUI';
 
 const mapStateToProps = (state: IStore) => {
-  const { tasks, tasksUI: { activeTask, isShowCompleted, isShowModal } } = state;
+  const { tasks, tasksUI: { isShowCompleted, isShowModal } } = state;
   return ({
     tasks,
-    activeTask,
     isShowCompleted,
     isShowModal,
   });
@@ -18,8 +17,8 @@ const mapStateToProps = (state: IStore) => {
 const mapDispatchToProps = {
   removeTask,
   changeTaskStatus,
-  toggleShowModal,
   changeActiveTask,
+  toggleShowModal,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TasksTable);

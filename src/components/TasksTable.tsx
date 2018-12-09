@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { isEmpty, values } from 'lodash';
 import { FormGroup, Input, Col, Row, Table } from 'reactstrap';
-import TasksModal from './TasksModal';
+import TasksModal from '../containers/TasksModal';
 
 import { IPropsTasksTable } from '../types/tasksTable';
 
@@ -50,14 +50,10 @@ export default class TasksTable extends React.Component<IPropsTasksTable> {
   }
 
   public renderTasksModal = () => {
-    const { activeTask, isShowModal, toggleShowModal } = this.props;
+    const { isShowModal } = this.props;
     if (isShowModal) {
       return (
-        <TasksModal
-          toggleShowModal={toggleShowModal}
-          isShowModal={isShowModal}
-          activeTask={activeTask}
-        />
+        <TasksModal />
       );
     }
     return null;

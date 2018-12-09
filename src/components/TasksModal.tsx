@@ -19,7 +19,13 @@ export default class TasksModal extends React.Component<any> {
         <ModalBody>
           <FormGroup>
             <Label for="exampleText">Измените задачу №{this.props.activeTask}</Label>
-            <Input type="textarea" name="text" id="exampleText" maxLength={140} />
+            <Input
+              type="textarea"
+              onChange={this.props.enterTaskConnect}
+              name="text"
+              id="exampleText"
+              maxLength={140}
+            />
           </FormGroup>
         </ModalBody>
         <ModalFooter>

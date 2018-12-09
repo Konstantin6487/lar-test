@@ -13,11 +13,6 @@ import { IPropsTasksInput } from '../types/tasksInput';
 
 export default class TasksInput extends React.Component<IPropsTasksInput> {
 
-  public handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { target: { value } } = e;
-    this.props.enterTask(value);
-  }
-
   public handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { addTask, clearTask, taskInput } = this.props;
@@ -37,7 +32,7 @@ export default class TasksInput extends React.Component<IPropsTasksInput> {
                 </Button>
               </InputGroupAddon>
               <Input
-                onChange={this.handleChange}
+                onChange={this.props.enterTaskConnect}
                 value={this.props.taskInput}
                 maxLength={140}
                 title={'Не более 140 символов'}
