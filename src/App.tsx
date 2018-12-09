@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import Tasks from './components/Tasks';
 
 const App: React.SFC = () => (

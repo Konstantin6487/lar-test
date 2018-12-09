@@ -29,7 +29,8 @@
           width: 25%;
         }
         td {
-          .remove-button {
+          .remove-button,
+          .show-modal-button {
             cursor: pointer
           }
         }

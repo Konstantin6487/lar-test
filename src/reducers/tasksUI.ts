@@ -4,6 +4,8 @@ import { ITasksUIStore } from '../types/tasksUIStore';
 
 const initState: ITasksUIStore = {
   isShowCompleted: false,
+  isShowModal: false,
+  activeTask: '',
   taskInput: '',
 };
 
@@ -15,6 +17,10 @@ export const tasksUI = (state = initState, action: TasksUIAction): ITasksUIStore
       return { ...state, taskInput: '' };
     case 'TASKUI_ISSHOWCOMPLETED_TOGGLE':
       return { ...state, isShowCompleted: !state.isShowCompleted };
+    case 'TASKUI_ISSHOWMODAL_TOGGLE':
+      return { ...state, isShowModal: !state.isShowModal };
+    case 'TASKUI_CHANGE_ACTIVE_TASK':
+      return { ...state, activeTask: action.payload };
     default:
       return state;
   }

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { isEmpty, values } from 'lodash';
 import { FormGroup, Input, Col, Row, Table } from 'reactstrap';
+import TasksModal from './TasksModal';
+
 import { IPropsTasksTable } from '../types/tasksTable';
 
 import './tasks.scss';
@@ -13,6 +15,11 @@ export default class TasksTable extends React.Component<IPropsTasksTable> {
 
   public handleChangeTaskStatus = (id: string) => () => {
     this.props.changeTaskStatus(id);
+  }
+
+  public handleChangeActiveTask = (id: string) => () => {
+    this.props.changeActiveTask(id);
+    this.props.toggleShowModal();
   }
 
   public renderTableRow = () => {
@@ -34,12 +41,26 @@ export default class TasksTable extends React.Component<IPropsTasksTable> {
             />
           </FormGroup></td>
           <td>
-            <span>[редактировать]</span>
+            <span className="show-modal-button" onClick={this.handleChangeActiveTask(String(id))}>[редактировать]</span>
             <span className="remove-button" onClick={this.handleRemoveTask(String(id))}>[удалить]</span>
           </td>
         </tr>
       );
     });
+  }
+
+  public renderTasksModal = () => {
+    const { activeTask, isShowModal, toggleShowModal } = this.props;
+    if (isShowModal) {
+      return (
+        <TasksModal
+          toggleShowModal={toggleShowModal}
+          isShowModal={isShowModal}
+          activeTask={activeTask}
+        />
+      );
+    }
+    return null;
   }
 
   public render() {
@@ -65,6 +86,7 @@ export default class TasksTable extends React.Component<IPropsTasksTable> {
             </tbody>
           </Table>
         </Col>
+        {this.renderTasksModal()}
       </Row>
     );
   }
