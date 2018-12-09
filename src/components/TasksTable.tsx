@@ -16,15 +16,22 @@ export default class TasksTable extends React.Component<any> {
   }
 
   public renderTableRow = () => {
-    const { tasks } = this.props;
-    return values(tasks).map(({ id, task, date }) => {
+    const { tasks, isShowCompleted } = this.props;
+    return values(tasks).map(({ id, task, date, isCompleted }) => {
+      if (isCompleted && isShowCompleted) {
+        return null;
+      }
       return (
         <tr key={id}>
           <th scope="Col">{id}</th>
           <td>{task}</td>
           <td>{date}</td>
           <td><FormGroup check={true} inline={true}>
-            <Input type="checkbox" onClick={this.handleChangeTaskStatus(id)} value={this.props.tasks.isCompleted} />
+            <Input
+              type="checkbox"
+              onChange={this.handleChangeTaskStatus(id)}
+              checked={isCompleted}
+            />
           </FormGroup></td>
           <td>
             <span>[редактировать]</span>

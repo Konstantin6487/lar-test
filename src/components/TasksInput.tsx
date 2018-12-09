@@ -35,6 +35,8 @@ export default class TasksInput extends React.Component<
               <Input
                 onChange={this.handleChange}
                 value={this.props.taskInput}
+                maxLength={140}
+                title={'Не более 140 символов'}
               />
             </InputGroup>
             </Form>

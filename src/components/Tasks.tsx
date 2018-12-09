@@ -9,10 +9,10 @@ import TasksSwitch from '../containers/TasksSwitch';
 
 export default class Tasks extends React.Component {
 
-  public static Header = TasksHeader;
-  public static Input = TasksInput;
-  public static Table = TasksTable;
-  public static Switch = TasksSwitch;
+  public static readonly Header = TasksHeader;
+  public static readonly Input = TasksInput;
+  public static readonly Table = TasksTable;
+  public static readonly Switch = TasksSwitch;
   public render() {
     return <Container>{this.props.children}</Container>;
   }
