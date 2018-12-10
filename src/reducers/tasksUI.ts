@@ -3,9 +3,9 @@ import { TasksUIAction } from '../actions/tasksUI';
 import { ITasksUIStore } from '../types/tasksUIStore';
 
 const initState: ITasksUIStore = {
+  activeTask: '',
   isShowCompleted: false,
   isShowModal: false,
-  activeTask: '',
   taskInput: '',
 };
 

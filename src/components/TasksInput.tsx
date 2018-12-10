@@ -15,7 +15,11 @@ export default class TasksInput extends React.Component<IPropsTasksInput> {
 
   public handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { addTask, clearTask, taskInput } = this.props;
+    const {
+      addTask,
+      clearTask,
+      taskInput,
+    } = this.props;
     addTask(taskInput!);
     clearTask();
   }
@@ -28,7 +32,7 @@ export default class TasksInput extends React.Component<IPropsTasksInput> {
             <InputGroup>
               <InputGroupAddon addonType="prepend">
                 <Button disabled={!this.props.taskInput}>
-                  Create task
+                  Новая задача
                 </Button>
               </InputGroupAddon>
               <Input

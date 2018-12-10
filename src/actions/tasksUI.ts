@@ -10,11 +10,11 @@ export type TasksUIAction =
 export const enterTask = (task: taskType): TasksUIAction =>
   ({ type: 'TASKUI_TEXT_ENTER', payload: task });
 
-export const toggleShowCompleted = (): TasksUIAction =>
-  ({ type: 'TASKUI_ISSHOWCOMPLETED_TOGGLE' });
-
 export const clearTask = (): TasksUIAction =>
   ({ type: 'TASKUI_TEXT_CLEAR' });
+
+export const toggleShowCompleted = (): TasksUIAction =>
+  ({ type: 'TASKUI_ISSHOWCOMPLETED_TOGGLE' });
 
 export const toggleShowModal = (): TasksUIAction =>
   ({ type: 'TASKUI_ISSHOWMODAL_TOGGLE' });

@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { isEmpty, values } from 'lodash';
-import { FormGroup, Input, Col, Row, Table } from 'reactstrap';
-import TasksModal from '../containers/TasksModal';
+import {
+  FormGroup,
+  Input,
+  Col,
+  Row,
+  Table,
+} from 'reactstrap';
 
 import { IPropsTasksTable } from '../types/tasksTable';
 
@@ -9,13 +14,11 @@ import './tasks.scss';
 
 export default class TasksTable extends React.Component<IPropsTasksTable> {
 
-  public handleRemoveTask = (id: string) => () => {
-    this.props.removeTask(id);
-  }
+  public handleRemoveTask = (id: string) => () =>
+    this.props.removeTask(id)
 
-  public handleChangeTaskStatus = (id: string) => () => {
-    this.props.changeTaskStatus(id);
-  }
+  public handleChangeTaskStatus = (id: string) => () =>
+    this.props.changeTaskStatus(id)
 
   public handleChangeActiveTask = (id: string) => () => {
     this.props.changeActiveTask(id);
@@ -23,7 +26,10 @@ export default class TasksTable extends React.Component<IPropsTasksTable> {
   }
 
   public renderTableRow = () => {
-    const { tasks, isShowCompleted } = this.props;
+    const {
+      isShowCompleted,
+      tasks,
+    } = this.props;
     return values(tasks).map(({ id, task, date, isCompleted }) => {
       if (isCompleted && isShowCompleted) {
         return null;
@@ -49,16 +55,6 @@ export default class TasksTable extends React.Component<IPropsTasksTable> {
     });
   }
 
-  public renderTasksModal = () => {
-    const { isShowModal } = this.props;
-    if (isShowModal) {
-      return (
-        <TasksModal />
-      );
-    }
-    return null;
-  }
-
   public render() {
 
     if (isEmpty(this.props.tasks)) {
@@ -82,7 +78,6 @@ export default class TasksTable extends React.Component<IPropsTasksTable> {
             </tbody>
           </Table>
         </Col>
-        {this.renderTasksModal()}
       </Row>
     );
   }

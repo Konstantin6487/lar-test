@@ -1,36 +1,85 @@
 import * as React from 'react';
 import {
   Button,
+  FormGroup,
+  Input,
+  Label,
   Modal,
   ModalBody,
-  ModalFooter,
   ModalHeader,
-
-  FormGroup,
-  Label,
-  Input,
+  ModalFooter,
 } from 'reactstrap';
 
 export default class TasksModal extends React.Component<any> {
+
+  public handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { currentTarget: { value } } = e;
+    this.props.updateSandBoxTask(value);
+  }
+
+  public handleClick = () => {
+    const {
+      updateTask,
+      activeTask,
+      textInput,
+      date,
+      updateDate,
+    } = this.props;
+    if (date) {
+      updateDate(activeTask, date);
+    }
+    if (textInput) {
+      updateTask(activeTask, textInput);
+    }
+    this.closedModal();
+  }
+
+  public changeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { currentTarget: { value } } = e;
+    this.props.updateSandBoxDate(value);
+  }
+
+  public closedModal = () => {
+    this.props.toggleShowModal();
+    this.props.clearSandBox();
+  }
+
   public render() {
+
+    const {
+      isShowModal,
+      toggleShowModal,
+      activeTask,
+      changingTask,
+    } = this.props;
     return (
-      <Modal isOpen={this.props.isShowModal} toggle={this.props.toggleShowModal}>
-        <ModalHeader toggle={this.props.toggleShowModal}>Редактирование задачи</ModalHeader>
+      <Modal isOpen={isShowModal} toggle={toggleShowModal}>
+        <ModalHeader toggle={toggleShowModal}>Редактирование задачи</ModalHeader>
         <ModalBody>
           <FormGroup>
-            <Label for="exampleText">Измените задачу №{this.props.activeTask}</Label>
+            <Label for="exampleText">Измените задачу №{activeTask}</Label>
             <Input
-              type="textarea"
-              onChange={this.props.enterTaskConnect}
-              name="text"
+              defaultValue={changingTask}
               id="exampleText"
               maxLength={140}
+              name="text"
+              type="textarea"
+              onChange={this.handleChange}
+            />
+            <input
+              defaultValue={this.props.changingDate}
+              type="date"
+              onChange={this.changeDate}
             />
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={this.props.toggleShowModal}>Do Something</Button>{' '}
-          <Button color="secondary" onClick={this.props.toggleShowModal}>Cancel</Button>
+          <Button
+            onClick={this.handleClick}
+            color="primary"
+          >Применить
+          </Button>{' '}
+          <Button color="secondary" onClick={this.closedModal}>Отмена</Button>
         </ModalFooter>
       </Modal>
     );

@@ -7,6 +7,7 @@ const App: React.SFC = () => (
     <Tasks.Input />
     <Tasks.Switch />
     <Tasks.Table />
+    <Tasks.Modal />
   </Tasks>
 );
 

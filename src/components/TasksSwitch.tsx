@@ -12,9 +12,8 @@ import { IPropsTasksSwitch } from '../types/tasksSwitch';
 
 export default class TasksSwitch extends React.Component<IPropsTasksSwitch> {
 
-  public handleChange = () => {
-    this.props.toggleShowCompleted();
-  }
+  public handleChange = () =>
+    this.props.toggleShowCompleted()
 
   public render() {
 
