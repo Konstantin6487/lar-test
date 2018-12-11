@@ -41,6 +41,7 @@ export default class TasksModal extends React.Component<any> {
 
   public closedModal = () => {
     this.props.toggleShowModal();
+    this.props.changeActiveTask('');
     this.props.clearSandBox();
   }
 

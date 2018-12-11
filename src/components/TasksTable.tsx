@@ -47,7 +47,9 @@ export default class TasksTable extends React.Component<IPropsTasksTable> {
             />
           </FormGroup></td>
           <td>
-            <span className="show-modal-button" onClick={this.handleChangeActiveTask(String(id))}>[редактировать]</span>
+            <span className="show-modal-button" onClick={this.handleChangeActiveTask(String(id))}>
+                [редактировать]
+            </span>
             <span className="remove-button" onClick={this.handleRemoveTask(String(id))}>[удалить]</span>
           </td>
         </tr>
