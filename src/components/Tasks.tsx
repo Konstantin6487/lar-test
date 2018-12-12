@@ -2,18 +2,18 @@ import * as React from 'react';
 import { Container } from 'reactstrap';
 
 import TasksHeader from './TasksHeader';
-import TasksInput from '../containers/TasksInput';
-import TasksTable from '../containers/TasksTable';
-import TasksSwitch from '../containers/TasksSwitch';
-import TasksModal from '../containers/TasksModal';
+import TasksInputContainer from '../containers/TasksInputContainer';
+import TasksTableContainer from '../containers/TasksTableContainer';
+import TasksSwitchContainer from '../containers/TasksSwitchContainer';
+import TasksModalContainer from '../containers/TasksModalContainer';
 
 export default class Tasks extends React.Component {
 
   public static Header = TasksHeader;
-  public static Input = TasksInput;
-  public static Table = TasksTable;
-  public static Switch = TasksSwitch;
-  public static Modal = TasksModal;
+  public static Input = TasksInputContainer;
+  public static Table = TasksTableContainer;
+  public static Switch = TasksSwitchContainer;
+  public static Modal = TasksModalContainer;
   public render() {
     return (
       <Container>

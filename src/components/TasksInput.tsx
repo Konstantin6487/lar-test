@@ -37,9 +37,10 @@ export default class TasksInput extends React.Component<IPropsTasksInput> {
               </InputGroupAddon>
               <Input
                 onChange={this.props.enterTaskConnect}
-                value={this.props.taskInput}
+                autoComplete="off"
                 maxLength={140}
                 title={'Не более 140 символов'}
+                value={this.props.taskInput}
               />
             </InputGroup>
             </Form>
