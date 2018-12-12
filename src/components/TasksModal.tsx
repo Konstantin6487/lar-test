@@ -46,7 +46,6 @@ export default class TasksModal extends React.Component<any> {
   }
 
   public render() {
-
     const {
       isShowModal,
       toggleShowModal,
@@ -75,11 +74,7 @@ export default class TasksModal extends React.Component<any> {
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-          <Button
-            onClick={this.handleClick}
-            color="primary"
-          >Применить
-          </Button>{' '}
+          <Button onClick={this.handleClick} color="primary">Применить</Button>{' '}
           <Button color="secondary" onClick={this.closedModal}>Отмена</Button>
         </ModalFooter>
       </Modal>
