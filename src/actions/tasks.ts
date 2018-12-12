@@ -19,8 +19,8 @@ export const removeTask = (id: taskIdType): TasksAction =>
 export const changeTaskStatus = (id: taskIdType): TasksAction =>
   ({ type: 'TASKS_CHANGE_STATUS_TASK', payload: id });
 
-export const updateTask = (id: taskIdType, text: taskType): TasksAction =>
+export const updateTaskText = (id: taskIdType, text: taskType): TasksAction =>
   ({ type: 'TASKS_UPDATE_TASK', payload: { id, text } });
 
-export const updateDate = (id: taskIdType, date: taskType): TasksAction =>
+export const updateTaskDate = (id: taskIdType, date: taskType): TasksAction =>
   ({ type: 'TASKS_UPDATE_DATE', payload: { id, date } });

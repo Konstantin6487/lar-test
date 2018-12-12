@@ -6,10 +6,10 @@ import { IStore } from '../types/store';
 import { changeActiveTask, toggleShowModal } from '../actions/tasksUI';
 
 const mapStateToProps = (state: IStore) => {
-  const { tasks, tasksUI: { isShowCompleted, isShowModal } } = state;
+  const { tasks, tasksUI: { isHideCompleted, isShowModal } } = state;
   return ({
     tasks,
-    isShowCompleted,
+    isHideCompleted,
     isShowModal,
   });
 };

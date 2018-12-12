@@ -19,17 +19,17 @@ export default class TasksModal extends React.Component<any> {
 
   public handleClick = () => {
     const {
-      updateTask,
+      updateTaskText,
       activeTask,
       textInput,
-      date,
-      updateDate,
+      dateInput,
+      updateTaskDate,
     } = this.props;
-    if (date) {
-      updateDate(activeTask, date);
+    if (dateInput) {
+      updateTaskDate(activeTask, dateInput);
     }
     if (textInput) {
-      updateTask(activeTask, textInput);
+      updateTaskText(activeTask, textInput);
     }
     this.closedModal();
   }
@@ -40,9 +40,10 @@ export default class TasksModal extends React.Component<any> {
   }
 
   public closedModal = () => {
-    this.props.toggleShowModal();
-    this.props.changeActiveTask('');
-    this.props.clearSandBox();
+    const { toggleShowModal, changeActiveTask, clearSandBox } = this.props;
+    toggleShowModal();
+    changeActiveTask('');
+    clearSandBox();
   }
 
   public render() {
@@ -51,6 +52,7 @@ export default class TasksModal extends React.Component<any> {
       toggleShowModal,
       activeTask,
       changingTask,
+      changingDate,
     } = this.props;
     return (
       <Modal isOpen={isShowModal} toggle={toggleShowModal}>
@@ -67,7 +69,7 @@ export default class TasksModal extends React.Component<any> {
               onChange={this.handleChange}
             />
             <input
-              defaultValue={this.props.changingDate}
+              defaultValue={changingDate}
               type="date"
               onChange={this.changeDate}
             />

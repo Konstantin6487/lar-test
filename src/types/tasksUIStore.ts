@@ -1,7 +1,7 @@
 import { taskType } from '../actions/tasksUI';
 
 export interface ITasksUIStore {
-  isShowCompleted?: boolean;
+  isHideCompleted?: boolean;
   isShowModal?: boolean;
   taskInput?: taskType;
   activeTask?: string;

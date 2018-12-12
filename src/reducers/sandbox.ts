@@ -4,7 +4,7 @@ import { SandBoxAction } from '../actions/sandbox';
 import { ISandBoxStore } from '../types/sandBoxStore';
 
 const initState: ISandBoxStore = {
-  date: '',
+  dateInput: '',
   textInput: '',
 };
 
@@ -16,7 +16,7 @@ export const sandbox = (state = initState, action: SandBoxAction): ISandBoxStore
       return { ...initState };
     case 'SANDBOX_DATE_ENTER':
       const parsedDate = reverse(action.payload.split('-')).join('.');
-      return { ...state, date: parsedDate };
+      return { ...state, dateInput: parsedDate };
     default:
       return state;
   }

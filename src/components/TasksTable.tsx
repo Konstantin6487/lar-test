@@ -27,11 +27,11 @@ export default class TasksTable extends React.Component<IPropsTasksTable> {
 
   public renderTableRow = () => {
     const {
-      isShowCompleted,
+      isHideCompleted,
       tasks,
     } = this.props;
     return values(tasks).map(({ id, task, date, isCompleted }) => {
-      if (isCompleted && isShowCompleted) {
+      if (isCompleted && isHideCompleted) {
         return null;
       }
       return (

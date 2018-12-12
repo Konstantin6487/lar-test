@@ -15,32 +15,32 @@ export default class TasksInput extends React.Component<IPropsTasksInput> {
 
   public handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const {
-      addTask,
-      clearTask,
-      taskInput,
-    } = this.props;
+    const { addTask, clearTask, taskInput } = this.props;
     addTask(taskInput!);
     clearTask();
   }
 
   public render() {
+
+    const { taskInput, enterTaskConnect } = this.props;
+
+    const isButtonDisabled = (str: string) =>
+      !str || str.split('').every(item => item === ' ');
+
     return (
       <Row className="justify-content-center">
         <Col xs="10">
           <Form onSubmit={this.handleSubmit}>
             <InputGroup>
               <InputGroupAddon addonType="prepend">
-                <Button disabled={!this.props.taskInput}>
-                  Новая задача
-                </Button>
+                <Button disabled={isButtonDisabled(taskInput!)}>Новая задача</Button>
               </InputGroupAddon>
               <Input
-                onChange={this.props.enterTaskConnect}
+                onChange={enterTaskConnect}
                 autoComplete="off"
                 maxLength={140}
                 title={'Не более 140 символов'}
-                value={this.props.taskInput}
+                value={taskInput}
               />
             </InputGroup>
             </Form>
