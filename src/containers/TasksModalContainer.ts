@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import TasksModal from '../components/TasksModal';
 import { updateTaskText, updateTaskDate } from '../actions/tasks';
 import { changeActiveTask, toggleShowModal } from '../actions/tasksUI';
-import { updateSandBoxTask, updateSandBoxDate, clearSandBox } from '../actions/sandbox';
+import { updateSandBox, clearSandBox } from '../actions/sandbox';
 import { IStore } from '../types/store';
 
 const mapStateToProps = (state: IStore) => {
@@ -26,8 +26,7 @@ const mapDispatchToProps = {
   changeActiveTask,
   clearSandBox,
   toggleShowModal,
-  updateSandBoxTask,
-  updateSandBoxDate,
+  updateSandBox,
   updateTaskText,
   updateTaskDate,
 };

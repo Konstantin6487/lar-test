@@ -14,15 +14,17 @@ import './tasks.scss';
 
 export default class TasksTable extends React.Component<IPropsTasksTable> {
 
-  public handleRemoveTask = (id: string) => () =>
-    this.props.removeTask(id)
+  public handleRemoveTask = (id: string) => () => {
+    this.props.removeTask!(id);
+  }
 
-  public handleChangeTaskStatus = (id: string) => () =>
-    this.props.changeTaskStatus(id)
+  public handleChangeTaskStatus = (id: string) => () => {
+    this.props.changeTaskStatus!(id);
+  }
 
   public handleChangeActiveTask = (id: string) => () => {
-    this.props.changeActiveTask(id);
-    this.props.toggleShowModal();
+    this.props.changeActiveTask!(id);
+    this.props.toggleShowModal!();
   }
 
   public renderTableRow = () => {

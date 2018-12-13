@@ -32,12 +32,8 @@ export const tasks = (state = initState, action: TasksAction): ITasksStore => {
       return omit(state, action.payload);
     case 'TASKS_CHANGE_STATUS_TASK':
       const currentTask = state[action.payload];
-      return {
-        ...state, [action.payload]: {
-          ...currentTask,
-          isCompleted: !currentTask.isCompleted,
-        },
-      };
+      return { ...state, [action.payload]: {
+        ...currentTask, isCompleted: !currentTask.isCompleted } };
     default:
       return state;
   }

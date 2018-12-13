@@ -10,10 +10,12 @@ import {
   ModalFooter,
 } from 'reactstrap';
 
-export default class TasksModal extends React.Component<any> {
+import { IPropsTasksModal } from '../types/tasksModal';
+
+export default class TasksModal extends React.Component<IPropsTasksModal> {
 
   public handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.props.updateSandBoxTask(e.currentTarget.value);
+    this.props.updateSandBox('task', e.currentTarget.value);
   }
 
   public handleClick = () => {
@@ -25,33 +27,27 @@ export default class TasksModal extends React.Component<any> {
       updateTaskDate,
     } = this.props;
     if (dateInput) {
-      updateTaskDate(activeTask, dateInput);
+      updateTaskDate(activeTask!, dateInput);
     }
     if (textInput) {
-      updateTaskText(activeTask, textInput);
+      updateTaskText(activeTask!, textInput);
     }
     this.closedModal();
   }
 
   public changeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.props.updateSandBoxDate(e.currentTarget.value);
+    this.props.updateSandBox('date', e.currentTarget.value);
   }
 
   public closedModal = () => {
     const { toggleShowModal, changeActiveTask, clearSandBox } = this.props;
-    toggleShowModal();
-    changeActiveTask('');
+    toggleShowModal!();
+    changeActiveTask!('');
     clearSandBox();
   }
 
   public render() {
-    const {
-      isShowModal,
-      toggleShowModal,
-      activeTask,
-      changingTask,
-      changingDate,
-    } = this.props;
+    const { isShowModal, toggleShowModal, activeTask, changingTask, changingDate } = this.props;
     return (
       <Modal isOpen={isShowModal} toggle={toggleShowModal}>
         <ModalHeader toggle={toggleShowModal}>Редактирование задачи</ModalHeader>
@@ -66,11 +62,7 @@ export default class TasksModal extends React.Component<any> {
               type="textarea"
               onChange={this.handleChange}
             />
-            <input
-              defaultValue={changingDate}
-              type="date"
-              onChange={this.changeDate}
-            />
+            <input defaultValue={changingDate} type="date" onChange={this.changeDate} />
           </FormGroup>
         </ModalBody>
         <ModalFooter>

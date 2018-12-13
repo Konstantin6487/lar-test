@@ -10,7 +10,7 @@ const initState: ISandBoxStore = {
 
 export const sandbox = (state = initState, action: SandBoxAction): ISandBoxStore => {
   switch (action.type) {
-    case 'SANDBOX_TEXT_ENTER':
+    case 'SANDBOX_TASK_ENTER':
       return { ...state, textInput: action.payload };
     case 'SANDBOX_CLEAR':
       return { ...initState };
