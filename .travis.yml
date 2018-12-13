@@ -3,6 +3,10 @@ language: node_js
 node_js:
 - node
 
+addons:
+  code_climate:
+    repo_token: d15d525e104e6464ae3b4f7d212fa16155e30aced6d2769f6da3c70a350376e4
+
 cache:
   directories:
   - node_modules
