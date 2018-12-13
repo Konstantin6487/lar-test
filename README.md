@@ -26,6 +26,12 @@ $ make build
 $ make lint
 ```
 
+## Test
+
+```
+$ make test
+```
+
 ## Deploy
 
 ```

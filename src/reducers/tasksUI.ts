@@ -2,7 +2,7 @@ import { TasksUIAction } from '../actions/tasksUI';
 
 import { ITasksUIStore } from '../types/tasksUIStore';
 
-const initState: ITasksUIStore = {
+export const initState: ITasksUIStore = {
   activeTask: '',
   isHideCompleted: false,
   isShowModal: false,

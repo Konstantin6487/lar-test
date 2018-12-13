@@ -17,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
+    "test": "react-scripts test",
     "lint": "tslint -c tslint.yaml 'src/**/*.{ts,tsx}'",
     "cost": "npx cost-of-modules --less --no-install",
     "deploy": "npx surge build"
@@ -31,6 +32,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^23.3.10",
     "@types/lodash": "^4.14.118",
     "@types/node": "^10.12.12",
@@ -38,6 +41,8 @@
     "@types/react-dom": "^16.0.11",
     "@types/react-redux": "^6.0.11",
     "@types/reactstrap": "^6.4.3",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-eslint-rules": "^5.4.0",

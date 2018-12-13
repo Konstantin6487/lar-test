@@ -30,7 +30,7 @@ export default class TasksInput extends React.Component<IPropsTasksInput> {
     return (
       <Row className="justify-content-center">
         <Col xs="10">
-          <Form onSubmit={this.handleSubmit}>
+          <Form className="tasks-input" onSubmit={this.handleSubmit}>
             <InputGroup>
               <InputGroupAddon addonType="prepend">
                 <Button disabled={isButtonDisabled(taskInput!)}>Новая задача</Button>
