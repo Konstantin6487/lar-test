@@ -36,7 +36,9 @@
       "src/**/*.tsx",
       "!/node_modules/"
     ],
-    "coverageReporters": ["lcov"]
+    "coverageReporters": [
+      "lcov"
+    ]
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.15",
@@ -48,6 +50,7 @@
     "@types/react-dom": "^16.0.11",
     "@types/react-redux": "^6.0.11",
     "@types/reactstrap": "^6.4.3",
+    "codeclimate-test-reporter": "^0.5.1",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "tslint": "^5.11.0",
