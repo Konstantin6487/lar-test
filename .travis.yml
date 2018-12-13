@@ -1,23 +1,23 @@
 language: node_js
 
 node_js:
-  - node
+- node
 
 cache:
   directories:
   - node_modules
 
 install:
-  - npm install -q --no-color --no-progress
+- npm install -q --no-color --no-progress
 
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- ./cc-test-reporter before-build
 
 script:
-  - make lint
-  - make test
+- make lint
+- make test
 
 after_script:
 - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

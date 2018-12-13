@@ -1,22 +1,22 @@
 extends:
-  - "tslint-react"
-  - "tslint-config-airbnb"
-  - "tslint-eslint-rules"
+- "tslint-react"
+- "tslint-config-airbnb"
+- "tslint-eslint-rules"
 
 rules:
-    max-line-length:
-        options: [120]
-    ordered-imports: false
-    object-literal-sort-keys: false
-    prefer-function-over-method: true
-    variable-name: [true, "ban-keywords", "check-format", "allow-pascal-case"]
-    interface-over-type-literal: false
+  max-line-length:
+    options: [120]
+  ordered-imports: false
+  object-literal-sort-keys: false
+  prefer-function-over-method: true
+  variable-name: [true, "ban-keywords", "check-format", "allow-pascal-case"]
+  interface-over-type-literal: false
 
 jsRules:
-    max-line-length:
-        options: [120]
+  max-line-length:
+    options: [120]
 
 linterOptions:
-    exclude:
-      - "node_modules/**/*.ts"
-      - "coverage/lcov-report/*.js"
+  exclude:
+  - "node_modules/**/*.ts"
+  - "coverage/lcov-report/*.js"
