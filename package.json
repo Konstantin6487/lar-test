@@ -32,7 +32,7 @@
     "not op_mini all"
   ],
   "jest": {
-    "collectCoverage": true,
+    "collectCoverageFrom": "src/**/*.jsx",
     "coverageReporters": ["lcov"]
   },
   "devDependencies": {
