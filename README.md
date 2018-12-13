@@ -1,4 +1,4 @@
-# test-lar
+# lar-test
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/c09e7d6f21e6bffcf8da/maintainability)](https://codeclimate.com/github/Konstantin6487/lar-test/maintainability)
 
