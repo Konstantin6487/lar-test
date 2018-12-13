@@ -34,7 +34,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.tsx",
-      "!/node_modules/"
+      "!node_modules/"
     ],
     "coverageReporters": [
       "lcov"
