@@ -14,7 +14,7 @@ lint:
 	npm run lint
 
 test:
-	npm run test
+	npm test -- --coverage
 
 deploy:
 	npm run deploy

@@ -13,8 +13,7 @@ import {
 export default class TasksModal extends React.Component<any> {
 
   public handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { currentTarget: { value } } = e;
-    this.props.updateSandBoxTask(value);
+    this.props.updateSandBoxTask(e.currentTarget.value);
   }
 
   public handleClick = () => {
@@ -35,8 +34,7 @@ export default class TasksModal extends React.Component<any> {
   }
 
   public changeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { currentTarget: { value } } = e;
-    this.props.updateSandBoxDate(value);
+    this.props.updateSandBoxDate(e.currentTarget.value);
   }
 
   public closedModal = () => {
